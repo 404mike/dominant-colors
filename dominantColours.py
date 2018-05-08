@@ -11,8 +11,6 @@ def loadCSV():
 
 def convertFromRgbToWebColour(imageRGB):
 
-  loadCSV()
-  
   nearest = ''
   diff = ''
   target = imageRGB
@@ -38,6 +36,8 @@ def convertFromRgbToWebColour(imageRGB):
 
 def getImageRGB(imagePath,numberColours):
 
+  loadCSV()
+
   results = []
 
   colors = colorgram.extract(imagePath, numberColours)
@@ -54,4 +54,4 @@ def getImageRGB(imagePath,numberColours):
 
   return json.dumps(list(OrderedDict.fromkeys(results)))
 
-print getImageRGB('t.jpg',6)
+print getImageRGB('image.jpg',6)
